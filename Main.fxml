@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import org.controlsfx.control.textfield.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.germandolllover.guessthenumber.MainController">
+   <top>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+          <Button contentDisplay="TOP" focusTraversable="false" mnemonicParsing="false" onAction="#doExit" styleClass="control-border" text="Exit">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/icons/exit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Exit this application">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </Button>
+            <Button fx:id="newgame" contentDisplay="TOP" focusTraversable="false" mnemonicParsing="false" onAction="#doNewGame" styleClass="control-border" text="New Game">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/icons/new.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Start new Game">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </Button>
+            <MenuButton contentDisplay="TOP" focusTraversable="false" mnemonicParsing="false" styleClass="control-border" text="Difficulty">
+               <items>
+                  <RadioMenuItem fx:id="easy" mnemonicParsing="false" selected="true" text="Difficulty Easy">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="difficulty" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="medium" mnemonicParsing="false" text="Difficulty Medium" toggleGroup="$Difficulty" />
+                  <RadioMenuItem fx:id="hard" mnemonicParsing="false" text="Difficulty Hard" toggleGroup="$Difficulty" />
+               </items>
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/icons/difficulty.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Change difficulty (easy, medium, hard)">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </MenuButton>
+            <Button contentDisplay="TOP" focusTraversable="false" mnemonicParsing="false" onAction="#showHomepage" styleClass="control-border" text="Home">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/icons/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Opens the developer home page">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </Button>
+            <Button contentDisplay="TOP" disable="true" focusTraversable="false" mnemonicParsing="false" onAction="#checkForUpdates" styleClass="control-border" text="Update">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/icons/update.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Check for Updates">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </Button>
+            <Button contentDisplay="TOP" focusTraversable="false" mnemonicParsing="false" onAction="#showProgramInfo" styleClass="control-border" text="About">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/icons/about.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Shows the program information dialog">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </Button>
+        </items>
+      </ToolBar>
+   </top>
+   <center>
+      <Pane id="mainpanel" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane id="gamepanel" fx:id="gamepanel" prefHeight="392.0" prefWidth="660.0">
+               <children>
+                  <ImageView fitHeight="348.0" fitWidth="198.0" layoutX="15.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/images/casey_gtn.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="219.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Guess The Number">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="thequestion" layoutX="219.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Can you guess the number between 0 and 100 which is randomized generated? You have 10 attempts" wrappingWidth="401.13671875">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#0016bf" layoutX="219.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter your guess in the input field underneath and press OK!">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="guessedit" alignment="CENTER" layoutX="219.0" layoutY="160.0" prefHeight="80.0" prefWidth="189.0" promptText="0" styleClass="control-border">
+                     <font>
+                        <Font name="System Bold" size="48.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="okbutton" defaultButton="true" layoutX="408.0" layoutY="160.0" mnemonicParsing="false" onAction="#doEnterGuess" prefHeight="25.0" prefWidth="206.0" styleClass="control-border" text="OK">
+                     <font>
+                        <Font name="System Bold" size="48.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/icons/ok.png" />
+                           </image></ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Checks if your guess was right">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </Button>
+                  <ProgressBar fx:id="progress" layoutX="219.0" layoutY="268.0" prefHeight="29.0" prefWidth="397.0" progress="1.0" styleClass="control-border" />
+                  <Text fx:id="attemptsDisplay" layoutX="219.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10 attempts left">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="542.0" layoutY="22.0" mnemonicParsing="false" onAction="#cancelGame" prefHeight="32.0" prefWidth="72.0" styleClass="control-border" text="Cancel">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                        	<image>
+                        		<Image url="@resources/icons/cancel16.png" />
+                     		</image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Cancel the active game">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </Button>
+               </children></AnchorPane>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

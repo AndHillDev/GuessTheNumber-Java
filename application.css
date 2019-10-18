@@ -1,0 +1,16 @@
+#mainpanel {
+	-fx-background-image: url("resources/images/mainimage.jpg");
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: cover;
+}
+
+#gamepanel {
+	-fx-background-image: url("resources/images/gameimage.jpg");
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: cover;
+}
+
+.control-border {
+	-fx-border-radius: 0;
+	-fx-background-radius: 0;
+}
